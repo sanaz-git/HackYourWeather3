@@ -1,0 +1,59 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.App {
+  text-align: center;
+  font-family: 'Lucida Console', serif;
+  margin-top: 20px;
+}
+
+
+.allInfo{
+  text-align: left;
+  text-emphasis: left;
+  margin-top: 40px;
+  padding: 20px;
+  padding-left: 30px;
+  border: 2px solid black;
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  line-height:30px ;
+  
+}
+
+.allInfo ul li {
+  list-style: none;
+  
+}
+
+.des{
+  padding-bottom: 20px;
+}
+
+.form{
+  margin: 20px;
+}
+
+.input{
+  font-size: 15px;
+  padding-left: 10px;
+  width: 30%;
+  height: 35px;
+  margin-right: 10px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  font-family: FontAwesome;
+ 
+}
+
+.btn{
+  font-size: 15px;
+  width: 10%;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid black;
+
+}
