@@ -1,10 +1,15 @@
 import React from 'react';
 
 const Weather = ({ allInfo }) => {
+  function handleDelete() {
+    // props.setAllInfo(prev => prev.filter(allInfo => allInfo.id != props.id))
+  }
+
   return (
     <div className="allInfo">
       <ul>
         <li>
+          <button onClick={handleDelete}>Delete</button>
           <h2>
             {allInfo.name}, {allInfo.sys.country}
           </h2>
