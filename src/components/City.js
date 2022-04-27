@@ -6,28 +6,16 @@ const City = () => {
   const [allInfo, setAllInfo] = useState();
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
-  // const [items, setItems] = useState([]);
-
-  // useEffect(() => {
-  //   const items = JSON.parse(localStorage.getItem('items'));
-  //   if (items) {
-  //     setItems(items);
-  //   }
-  // }, []);
-
-  // useEffect(() => {
-  //   if (localStorage.getItem('exampleData')) {
-  //     setAllInfo(JSON.parse(localStorage.getItem('exampleData')));
-  //   }
-  // }, []);
-  // useEffect(() => {
-  //   const ex = window.localStorage.getItem('exampleData');
-  //   if (ex !== null) setAllInfo(JSON.parse(ex));
-  // }, []);
 
   useEffect(() => {
-    localStorage.setItem('exampleData', JSON.stringify(allInfo));
+    localStorage.setItem('myData', JSON.stringify(allInfo));
   }, [allInfo]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('allInfo');
+    const initialValue = JSON.parse(saved);
+    if (saved !== null) setAllInfo(initialValue);
+  }, []);
 
   const onFormSubmit = (e) => {
     e.preventDefault();

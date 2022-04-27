@@ -3,6 +3,7 @@ import React from 'react';
 const Weather = ({ allInfo }) => {
   function handleDelete() {
     // props.setAllInfo(prev => prev.filter(allInfo => allInfo.id != props.id))
+    // localStorage.removeItem('allInfo');
   }
 
   return (
