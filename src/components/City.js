@@ -3,18 +3,15 @@ import Weather from './Weather';
 
 const City = () => {
   const [city, setCity] = useState('');
-  const [allInfo, setAllInfo] = useState();
+  const [allInfo, setAllInfo] = useState([]);
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
-    localStorage.setItem('myData', JSON.stringify(allInfo));
-  }, [allInfo]);
-
-  useEffect(() => {
-    const saved = localStorage.getItem('allInfo');
-    const initialValue = JSON.parse(saved);
-    if (saved !== null) setAllInfo(initialValue);
+    const savedCities = localStorage.getItem('myData');
+    if (savedCities) {
+      setAllInfo(JSON.parse(savedCities));
+    }
   }, []);
 
   const onFormSubmit = (e) => {
@@ -34,7 +31,8 @@ const City = () => {
         return response.json();
       })
       .then((data) => {
-        setAllInfo(data);
+        setAllInfo([...allInfo, data]);
+
         setIsPending(false);
         setError(null);
       })
@@ -44,6 +42,10 @@ const City = () => {
         setAllInfo(null);
       });
   };
+  console.log(allInfo);
+  if (allInfo.length > 0) {
+    localStorage.setItem('myData', JSON.stringify(allInfo));
+  }
 
   return (
     <div>
@@ -61,7 +63,8 @@ const City = () => {
       </form>
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
-      {allInfo && <Weather allInfo={allInfo} />}
+      {allInfo &&
+        allInfo.map((info, index) => <Weather key={index} info={info} />)}
     </div>
   );
 };
