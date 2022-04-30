@@ -49,8 +49,11 @@ const City = () => {
   }
 
   function handleDelete(e) {
-    console.log(e.target.id);
-    setAllInfo(allInfo.filter((item) => item.weather[0].id != e.target.id));
+    console.log(typeof e.target.id);
+
+    setAllInfo(
+      allInfo.filter((item) => item.weather[0].id !== parseInt(e.target.id)),
+    );
   }
 
   return (
