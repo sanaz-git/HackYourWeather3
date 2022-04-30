@@ -42,9 +42,18 @@ const City = () => {
         setAllInfo(null);
       });
   };
+
   console.log(allInfo);
   if (allInfo.length > 0) {
     localStorage.setItem('myData', JSON.stringify(allInfo));
+  }
+
+  function handleDelete(e) {
+    console.log(e.target.id);
+    setAllInfo(allInfo.filter((item) => item.weather[0].id != e.target.id));
+    // console.log(allInfo[0].weather[0].id);
+    // const test = allInfo.filter((item) => item.weather[0].id != e.target.id);
+    // console.log(test);
   }
 
   return (
@@ -64,7 +73,9 @@ const City = () => {
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}
       {allInfo &&
-        allInfo.map((info, index) => <Weather key={index} info={info} />)}
+        allInfo.map((info, index) => (
+          <Weather key={index} info={info} deleteItem={handleDelete} />
+        ))}
     </div>
   );
 };

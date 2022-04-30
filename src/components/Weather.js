@@ -1,16 +1,14 @@
 import React from 'react';
 
-const Weather = ({ info }) => {
-  function handleDelete() {
-    // props.setAllInfo(prev => prev.filter(info => info.id != props.id))
-  }
+const Weather = ({ info, deleteItem }) => {
   return (
     <div className="allInfo">
       <ul>
         <li>
-          <button onClick={handleDelete} info={info}>
+          <button id={info.weather[0].id} onClick={deleteItem}>
             Delete
           </button>
+
           <h2>
             {info.name},{info.sys.country}
           </h2>
