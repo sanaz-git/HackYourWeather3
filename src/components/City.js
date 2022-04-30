@@ -51,9 +51,6 @@ const City = () => {
   function handleDelete(e) {
     console.log(e.target.id);
     setAllInfo(allInfo.filter((item) => item.weather[0].id != e.target.id));
-    // console.log(allInfo[0].weather[0].id);
-    // const test = allInfo.filter((item) => item.weather[0].id != e.target.id);
-    // console.log(test);
   }
 
   return (

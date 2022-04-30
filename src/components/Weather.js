@@ -5,10 +5,15 @@ const Weather = ({ info, deleteItem }) => {
     <div className="allInfo">
       <ul>
         <li>
-          <button id={info.weather[0].id} onClick={deleteItem}>
-            Delete
-          </button>
-
+          <div className="button">
+            <button
+              className="deleteButton"
+              id={info.weather[0].id}
+              onClick={deleteItem}
+            >
+              x
+            </button>
+          </div>
           <h2>
             {info.name},{info.sys.country}
           </h2>
