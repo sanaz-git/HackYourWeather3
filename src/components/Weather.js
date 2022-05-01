@@ -26,8 +26,8 @@ const Weather = ({ info, deleteItem }) => {
               alt="img"
             />
           </p>
-          <p>temp_min: {Math.round(info.main.temp_min - 273)} &#8451;</p>
-          <p>temp_max: {Math.round(info.main.temp_max - 273)} &#8451;</p>
+          <p>temp_min: {Math.round(info.main.temp_min)} &#8451;</p>
+          <p>temp_max: {Math.round(info.main.temp_max)} &#8451;</p>
           <p>
             lon: {info.coord.lon.toFixed(2)} , lat:
             {info.coord.lat.toFixed(2)}

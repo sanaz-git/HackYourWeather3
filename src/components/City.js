@@ -3,16 +3,17 @@ import Weather from './Weather';
 
 const City = () => {
   const [city, setCity] = useState('');
-  const [allInfo, setAllInfo] = useState([]);
+  const [allInfo, setAllInfo] = useState(
+    localStorage.getItem('myData')
+      ? JSON.parse(localStorage.getItem('myData'))
+      : [],
+  );
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
 
   useEffect(() => {
-    const savedCities = localStorage.getItem('myData');
-    if (savedCities) {
-      setAllInfo(JSON.parse(savedCities));
-    }
-  }, []);
+    localStorage.setItem('myData', JSON.stringify(allInfo));
+  }, [allInfo]);
 
   const onFormSubmit = (e) => {
     e.preventDefault();
@@ -32,25 +33,16 @@ const City = () => {
       })
       .then((data) => {
         setAllInfo([...allInfo, data]);
-
         setIsPending(false);
         setError(null);
       })
       .catch((err) => {
         setIsPending(false);
         setError(err.message);
-        setAllInfo(null);
       });
   };
 
-  console.log(allInfo);
-  if (allInfo.length > 0) {
-    localStorage.setItem('myData', JSON.stringify(allInfo));
-  }
-
   function handleDelete(e) {
-    console.log(typeof e.target.id);
-
     setAllInfo(
       allInfo.filter((item) => item.weather[0].id !== parseInt(e.target.id)),
     );
