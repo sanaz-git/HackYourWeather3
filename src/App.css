@@ -6,7 +6,6 @@
 }
 .App {
   text-align: center;
-
   margin-top: 20px;
 }
 
@@ -48,11 +47,14 @@
 }
 
 .btn {
-  font-size: 15px;
-  width: 10%;
-  height: 35px;
+  min-width: 10%;
+  height: 32px;
   border-radius: 5px;
   border: 1px solid black;
+  height: 32px;
+  font-size: 15px;
+  font-family: FontAwesome;
+  padding-top: 2px;
 }
 
 .button {
@@ -71,4 +73,10 @@
 
 input::placeholder {
   text-transform: lowercase !important;
+}
+
+@media only screen and (max-width: 465px) {
+  .allInfo {
+    width: 100%;
+  }
 }
