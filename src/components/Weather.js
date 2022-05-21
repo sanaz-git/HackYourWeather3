@@ -6,11 +6,7 @@ const Weather = ({ info, deleteItem }) => {
       <ul>
         <li>
           <div className="button">
-            <button
-              className="deleteButton"
-              id={info.weather[0].id}
-              onClick={deleteItem}
-            >
+            <button className="deleteButton" id={info.id} onClick={deleteItem}>
               x
             </button>
           </div>

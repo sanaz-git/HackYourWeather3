@@ -6,7 +6,7 @@ const City = () => {
   const [allInfo, setAllInfo] = useState(
     localStorage.getItem('myData')
       ? JSON.parse(localStorage.getItem('myData'))
-      : [],
+      : '',
   );
   const [error, setError] = useState(null);
   const [isPending, setIsPending] = useState(false);
@@ -43,9 +43,7 @@ const City = () => {
   };
 
   function handleDelete(e) {
-    setAllInfo(
-      allInfo.filter((item) => item.weather[0].id !== parseInt(e.target.id)),
-    );
+    setAllInfo(allInfo.filter((item) => item.id !== parseInt(e.target.id)));
   }
 
   return (
